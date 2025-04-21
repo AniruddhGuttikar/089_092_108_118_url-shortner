@@ -25,6 +25,10 @@ app.use("*", async (c, next) => {
   }
 });
 
+app.get("/health", (c) => {
+  return c.json({ status: "ok" }, 200);
+});
+
 app.post("/shorten", async (c) => {
   try {
     const body = await c.req.json();
